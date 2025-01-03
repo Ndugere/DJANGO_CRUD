@@ -12,4 +12,4 @@ class Stud(models.Model):
     
     
     def __str__(self):
-        return f'Student : {Stud.student_number} {Stud.first_name} {Stud.last_name}'
+        return f'Student : {self.student_number} {self.first_name} {self.last_name}'
