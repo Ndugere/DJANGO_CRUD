@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Stud(models.Model):
-    student_number = models.PositiveIntegerField()
+    student_number = models.PositiveIntegerField(unique=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)

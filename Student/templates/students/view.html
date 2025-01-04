@@ -1,0 +1,58 @@
+{% extends "students/base.html" %}
+{% block body %}
+<div class="container-fluid">
+    <h4 class="m-4"><strong>Student: {{ student.student_number }}</strong></h4>
+    <div class="row">
+        <div class="col-12">
+            {% if student %}
+            <div class="card bg-light mx-4 mb-4">
+                <div class="card-header">
+                    <i class="fa-solid fa-circle-info fa-lg"></i> Student Record
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                        <table class="table table-bordered">
+                            
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><strong>Student Number</strong></th>
+                                    <td>{{ student.student_number }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><strong>First Name </strong></th>
+                                    <td>{{ student.first_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><strong>Last Name</strong></th>
+                                    <td>{{ student.last_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><strong>Email</strong></th>
+                                    <td>{{ student.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><strong>Field of Study</strong></th>
+                                    <td>{{ student.field_of_study }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><strong>GPA</strong></th>
+                                    <td>{{ student.gpa }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </table>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h5 class="alert alert-primary ms-4 me-4">No Record of Such Student</h5>
+            {% endif %}
+        </div>
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-primary m-4 text-decoration-none">
+        Go back to full list <i class="fa-solid fa-backward fa-lg"></i>
+    </a>  
+
+</div>
+{%endblock%}
