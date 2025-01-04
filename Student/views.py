@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Stud
 from .forms import StudForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -60,3 +62,8 @@ def edit(request, id):
     return render(request, 'students/edit.html', {
         "form": form
     })
+def delete(request, id):
+    if request.method == "POST":
+        student = Stud.objects.get(pk=id)
+        student.delete()
+    return HttpResponseRedirect(reverse('index'))
